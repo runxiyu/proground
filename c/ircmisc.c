@@ -41,6 +41,8 @@ const unsigned char casemap[] = {
 
 int ircmisc_mask_match(const struct string *mask, const struct string *name)
 {
+	// Copyright (c) 1990 Jarkko Oikarinen
+	// SPDX-License-Identifier: GPL-1.0-or-later
 	const char *m_origin = mask->data, *n_origin = name->data;
 	const char *m = mask->data, *n = name->data;
 	const char *m_tmp = mask->data, *n_tmp = name->data;
