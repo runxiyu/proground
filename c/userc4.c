@@ -2,7 +2,8 @@
 
 void rc4(const char *plain, const char *rc4key, char *output);
 
-int main() {
+int main()
+{
 	char *plain = "plain";
 	char *rc4key = "plain";
 	char output[256];

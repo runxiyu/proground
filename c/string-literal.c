@@ -1,5 +1,5 @@
-int main(void) {
+int main(void)
+{
 	char *s = "\0\0\0\0\0\0\0\0\0\0\0\0";
 	*s = '\x01';
 }
-

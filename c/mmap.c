@@ -3,9 +3,11 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int main() {
+int main()
+{
 	int *e;
-	e = mmap(NULL, 4096, PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
+	e = mmap(NULL, 4096, PROT_READ | PROT_WRITE,
+		 MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
 	if (e == MAP_FAILED) {
 		perror("mmap");
 		return 1;
