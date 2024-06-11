@@ -2,3 +2,4 @@ read
 *~
 a.out
 *.o
+.ccls-cache
