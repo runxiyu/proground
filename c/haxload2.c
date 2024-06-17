@@ -1,10 +1,12 @@
 #!/usr/bin/env -S tcc -run
 
 #include <elf.h>
+#include <errno.h>
 #include <fcntl.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <sys/mman.h>
 #include <unistd.h>
 
 // ELF is defined assuming 8-bit bytes
@@ -131,18 +133,50 @@ int main64(int fd, char endianness) {
                         got += res;
                         remaining -= res;
                 } while (remaining != 0);
+
+                printf("loaded phent at %lu\n", elf_header.e_phoff + (elf_header.e_phentsize * i));
         }
 
 
 
+        unsigned char **loaded_segments;
+        loaded_segments = malloc(phnum * sizeof(*loaded_segments));
         for (size_t i = 0; i < phnum; i++) {
+                int prot = 0;
+
                 switch (program_headers[i].p_type) {
-                case PT_LOAD:
-                        break;
-                case PT_DYNAMIC:
-                        break;
-                default:
-                        break;
+                        case PT_LOAD:
+//                              size_t;
+                                size_t pre_padding;
+                                if (program_headers[i].p_align == 0)
+                                        pre_padding = 0;
+                                else
+                                        pre_padding = program_headers[i].p_offset % program_headers[i].p_align;
+
+                                loaded_segments[i] = mmap(0, pre_padding + program_headers[i].p_memsz, PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+                                if (!loaded_segments[i]) {
+                                        puts("OOM!");
+                                        return 1;
+                                }
+                                printf("Mapped new segment of %lu length at %p\n", pre_padding + program_headers[i].p_memsz, loaded_segments[i]);
+                                size_t offset = 0;
+                                size_t remaining = program_headers[i].p_filesz;
+                                do {
+                                        ssize_t res = pread(fd, &(loaded_segments[i][offset + pre_padding]), remaining, program_headers[i].p_offset + offset);
+                                        if (res < 0) {
+                                                puts("pread failed");
+                                                printf("errno: %d\n", errno);
+                                                return 1;
+                                        }
+                                        offset += res;
+                                        remaining -= res;
+                                } while (remaining != 0);
+
+                                break;
+                        case PT_DYNAMIC:
+                                break;
+                        default:
+                                break;
                 }
         }
 
