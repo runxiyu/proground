@@ -1,0 +1,109 @@
+\input texinfo
+@c -*-texinfo-*-
+
+@c %**start of header
+@setfilename xyz-language
+@documentencoding UTF-8
+@settitle The XYZ-Language Specification
+@c %**end of header
+
+@copying
+This is free and unencumbered software and documentation released
+into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
+
+In jurisdictions that recognize copyright laws, the author or authors
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+@end copying
+
+@titlepage
+@title XYZ Language
+@subtitle A Modern but Sane, Statically-checked Mid-to-high-level Imperative Language
+
+@author Andrew Yu
+
+@page
+
+@insertcopying
+@end titlepage
+
+@contents
+
+@cindex Introduction
+@chapter Introduction
+
+Please note that ``XYZ Language'' is not the final name for this language, it's a placeholder until the authors can agree on a better name.  (``XYZ'' would be replaced by the name of the whole project that they are working on; the project is a whole ``ecosystem'' of architectures, utilities, protocols and languages, because modern-day computing really sucks.)
+
+Frustrated by the inefficient design of modern typesafe languages which check memory boundries at runtime, and (however less so) by the lack of protection at all by saner older languages such as C,  I've set out to create yet another mid-to-high level language, primarily for modern imperative machines.
+
+@itemize
+@item XYZ Language aims to do all safety checks compile time, thus not causing any extra overhead at runtime at all.  Safety checks include out-of-bound, race condition, double-free, use-after-free, and memory leak warnings.
+@item XYZ Language aims to support calling routines at compilation time, which to C programmers may seem like macros.  However, the macros are ``built in to the language'', rather than having a seperate way of definition and application through fragile string manipulation.
+@item A utility shall be developed in the far future to help formal verification of programs written in XYZ language.  Additionally, it should be fairly easy to bootstrap XYZ Language from scratch; an explained implementation in assembly languages of popular architectures could make this easier.
+@end itemize
+
+@section Comparison to Existing Languages
+@subsection Rust
+
+Rust has the reputation of being slow to compile.  Compiling the Rust language itself took a whole day on Andrew's laptop.  This compilation time isn't being wasted.  Rust actually has a lot to offer.
+
+Apart from the ``standard'' type checking present in popular C ompilers, Rust attempts to understand the program and attempts to conduct the following during compilation.
+@c I'm not an expert in Rust and I've probably got some of those wrong.  Please check them!
+@itemize
+@item 
+Variable bindings are ``owned'' by a reference.  The allocated memory is freed automatically when the owner disappears, preventing memory leaks.  Note that this differs from ``garbage collection'' commonly used in high-level langauges such as Go and Lisp as the point of deallocation is determined at compile-time, thus causing no extra overhead running garbage collectors at runtime.
+@item
+Entities may have numerous immutable references, OR one mutable reference, to ensure no race conditions.  This applies to pointers.  (This does not apply to pointers whose value is statically entered by the programmer, as it cannot anticipate where data is in runtime.)
+@end itemize
+
+XYZ Language will adopt most of Rust's checks.  However, XYZ Language's compiler shall not modify the resulting code in any way, all it should do is warn the programmer about possible defects, and possibly error out.
+
+@subsection C
+
+C is a classic mid-level language created for the UNIX operating system.  Modern compilers do basic type checking but rarely any memory checks.
+
+@chapter Variables and Data
+
+Below is a simple example that declares an integer variable @i{n}, prints it to standard output, and deallocates the variable.
+
+@example
+use_library standard_io.
+
+function main(void) @{
+       let integer n = 3.
+       print_format("%d", n).
+       free n.
+@}
+
+@end example
+
+If the free statement is omitted, the following warning will appear in your compiler output:
+@example
+xyzc: Memory leak warning: "n" declared on line 4 was never freed when the "main" scope (started at line 3) ends at line 7.
+@end example
+
+@unnumbered Concept Index
+@printindex cp
+
+@bye
+
+@c Local Variables:
+@c ispell-local-dictionary: "american";
+@c End:
