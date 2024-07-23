@@ -55,11 +55,11 @@ int ircmisc_mask_match(const struct string *mask, const struct string *name)
 			goto after_backtrack;
 		}
  backtrack:
-			if (m_tmp == m_origin)
-				return 0;
-			m = m_tmp;
-			n = ++n_tmp;
-			break;
+		if (m_tmp == m_origin)
+			return 0;
+		m = m_tmp;
+		n = ++n_tmp;
+		break;
  after_backtrack:
 		switch (*m) {
 		case '*':
@@ -68,7 +68,8 @@ int ircmisc_mask_match(const struct string *mask, const struct string *name)
 				if (*m == '*')
 					star_p = 1;
 				else if (*m == '?') {
-					if ((size_t)(n - n_origin + 1) > name->len) {
+					if ((size_t)(n - n_origin + 1) >
+					    name->len) {
 						++n;
 						goto backtrack;
 					} else {
