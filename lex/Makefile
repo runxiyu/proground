@@ -3,7 +3,7 @@ CC = gcc -Wall -Wextra -pedantic -Wno-unused-function
 .SUFFIXES: .c .l
 .PHONY: clean
 
-BINS = lineno nothing wc justprint
+BINS = lineno nothing wc justprint identifiers
 
 all: $(BINS)
 
