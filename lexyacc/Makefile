@@ -1,6 +1,8 @@
 CC = gcc -Wall -Wextra -pedantic
 
-lineno: lineno.c
+all: lineno
 
-lineno.c: lineno.l
-	lex -f -o lineno.c lineno.l
+.SUFFIXES: .c .l
+
+.l.c:
+	lex -f -o $@ $<
