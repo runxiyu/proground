@@ -1,7 +1,5 @@
 %option noyywrap
 %%
-.
-\n
 %%
 int main(void) {
 	yylex();
