@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!DOCTYPE cambalache-project SYSTEM "cambalache-project.dtd">
+<cambalache-project version="0.94.0" target_tk="gtk-4.0">
+  <ui>
+	(1,None,"camb1.ui","camb1.ui",None,None,None,None,None,None,None)
+  </ui>
+</cambalache-project>
