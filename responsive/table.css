@@ -1,0 +1,42 @@
+html {
+	font-family: sans-serif;
+	background-color: var(--background-color);
+	color: var(--text-color);
+	--background-color: hsl(0, 0%, 100%);
+	--text-color: hsl(0, 0%, 0%);
+	--link-color: hsl(320, 50%, 36%);
+	--light-text-color: hsl(0, 0%, 45%);
+	--darker-border-color: hsl(0, 0%, 72%);
+	--lighter-border-color: hsl(0, 0%, 85%);
+	--text-decoration-color: hsl(0, 0%, 72%);
+	--darker-box-background-color: hsl(0, 0%, 92%);
+	--lighter-box-background-color: hsl(0, 0%, 95%);
+	--primary-color: hsl(320, 50%, 36%);
+	--primary-color-contrast: hsl(320, 0%, 100%);
+	--danger-color: hsl(0, 50%, 36%);
+	--danger-color-contrast: hsl(0, 0%, 100%);
+}
+table {
+	border: var(--lighter-border-color) solid 1px;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+td, th {
+	padding: 3px 5px;
+	border: var(--lighter-border-color) solid 1px;
+}
+.pad {
+	padding: 3px 5px;
+}
+th, thead, tfoot {
+	background-color: var(--lighter-box-background-color);
+}
+th[scope=row] {
+	text-align: left;
+}
+tr.title-row > th, th.title-row, .title-row {
+	background-color: var(--lighter-box-background-color);
+}
+td > pre {
+	margin: 0;
+}

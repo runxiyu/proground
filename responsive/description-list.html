@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commit Info - Description List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .commit-info {
+            max-width: 600px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .commit-header {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        dl {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            margin: 0;
+        }
+
+        dt {
+            font-weight: bold;
+            width: 30%;
+            min-width: 120px;
+            padding: 6px 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        dd {
+            flex: 1;
+            margin: 0;
+            padding: 6px 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        pre {
+            margin: 0;
+            font-family: monospace;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            dt {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="commit-info">
+    <div class="commit-header">Commit Info</div>
+    <dl>
+        <dt>ID</dt>
+        <dd>322828d1396ae5b6753737336ab415eea73476ad</dd>
+
+        <dt>Author</dt>
+        <dd>Runxi Yu &lt;<a href="mailto:me@runxiyu.org">me@runxiyu.org</a>&gt;</dd>
+
+        <dt>Author date</dt>
+        <dd>Fri, 14 Feb 2025 17:13:53 +0800</dd>
+
+        <dt>Committer</dt>
+        <dd>Runxi Yu &lt;<a href="mailto:me@runxiyu.org">me@runxiyu.org</a>&gt;</dd>
+
+        <dt>Committer date</dt>
+        <dd>Fri, 14 Feb 2025 17:13:53 +0800</dd>
+
+        <dt>Message</dt>
+        <dd><pre>style.css: Shrink font-size a bit for monospace components</pre></dd>
+
+        <dt>Actions</dt>
+        <dd><a href="322828d1396ae5b6753737336ab415eea73476ad.patch">Get patch</a></dd>
+    </dl>
+</div>
+
+</body>
+</html>

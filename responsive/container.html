@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Commit Info - CSS Grid Table</title>
+	<style>
+		body {
+			font-family: sans-serif;
+			margin: 20px;
+		}
+
+		.commit-container {
+			max-width: 600px;
+			border: 1px solid #ddd;
+			border-radius: 8px;
+			overflow: hidden;
+			padding: 10px;
+			container-type: inline-size; /* Enables container queries */
+		}
+
+		.commit-header {
+			text-align: center;
+			font-size: 1.2em;
+			font-weight: bold;
+			background: #f4f4f4;
+			padding: 10px;
+			border-bottom: 1px solid #ddd;
+		}
+
+		.commit-grid {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			width: 100%;
+		}
+
+		.commit-label, .commit-value {
+			padding: 10px;
+			border-bottom: 1px solid #ddd;
+			border-right: 1px solid #ddd;
+		}
+
+		.commit-label {
+			font-weight: bold;
+			background-color: #f9f9f9;
+			text-align: left;
+			padding-left: 15px;
+		}
+
+		.commit-value {
+			overflow-wrap: break-word;
+			padding-left: 10px;
+		}
+
+		.commit-grid div:last-child {
+			border-bottom: none;
+		}
+
+		.commit-grid div:nth-child(even) {
+			border-right: none;
+		}
+
+		pre {
+			margin: 0;
+			font-family: monospace;
+		}
+
+		a {
+			color: #007bff;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		/* Container Query: Switch to stacked layout when container is too small */
+		@container (max-width: 400px) {
+			.commit-grid {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.commit-label {
+				width: 100%;
+				background: #f4f4f4;
+				font-weight: bold;
+				padding: 10px;
+				border-bottom: 1px solid #ddd;
+				border-right: none;
+			}
+
+			.commit-value {
+				padding: 10px;
+				border-right: none;
+			}
+		}
+	</style>
+</head>
+<body>
+
+<div class="commit-container">
+	<div class="commit-header">Commit Info</div>
+	<div class="commit-grid">
+		<div class="commit-label">ID</div>
+		<div class="commit-value">322828d1396ae5b6753737336ab415eea73476ad</div>
+
+		<div class="commit-label">Author</div>
+		<div class="commit-value">Runxi Yu &lt;<a href="mailto:me@runxiyu.org">me@runxiyu.org</a>&gt;</div>
+
+		<div class="commit-label">Author date</div>
+		<div class="commit-value">Fri, 14 Feb 2025 17:13:53 +0800</div>
+
+		<div class="commit-label">Committer</div>
+		<div class="commit-value">Runxi Yu &lt;<a href="mailto:me@runxiyu.org">me@runxiyu.org</a>&gt;</div>
+
+		<div class="commit-label">Committer date</div>
+		<div class="commit-value">Fri, 14 Feb 2025 17:13:53 +0800</div>
+
+		<div class="commit-label">Message</div>
+		<div class="commit-value"><pre>style.css: Shrink font-size a bit for monospace components</pre></div>
+
+		<div class="commit-label">Actions</div>
+		<div class="commit-value"><a href="322828d1396ae5b6753737336ab415eea73476ad.patch">Get patch</a></div>
+	</div>
+</div>
+
+</body>
+</html>

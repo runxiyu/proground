@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Commit Info Demo???</title>
+	<style>
+		body {
+			font-family: sans-serif;
+			margin: 20px;
+		}
+
+		.gridflex-container {
+			max-width: 50rem;
+			border: 1px solid #ddd;
+			border-radius: 8px;
+			overflow: hidden;
+		}
+
+		.gridflex-header {
+			text-align: center;
+			font-size: 1.2em;
+			font-weight: bold;
+			background: #f4f4f4;
+			padding: 5px 8px;
+			border-bottom: 1px solid #ddd;
+		}
+
+		.gridflex-grid {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		.gridflex-label, .gridflex-value {
+			padding: 5px 8px;
+			border-bottom: 1px solid #ddd;
+			border-right: 1px solid #ddd;
+		}
+
+		.gridflex-label {
+			font-weight: bold;
+			background-color: #f9f9f9;
+			text-align: left;
+			padding-left: 5px 8px;
+		}
+
+		.gridflex-value {
+			overflow-wrap: break-word;
+			padding-left: 5px 8px;
+			overflow-x: auto;
+		}
+
+		.gridflex-grid div:last-child {
+			border-bottom: none; /* Remove last row border */
+		}
+
+		.gridflex-grid div:nth-child(even) {
+			border-right: none; /* Remove right border for value cells */
+		}
+
+		pre {
+			margin: 0;
+			font-family: monospace;
+		}
+
+		a {
+			color: #007bff;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		/* Responsive Design */
+		@media (max-width: 600px) {
+			.gridflex-grid {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.gridflex-label {
+				width: 100%;
+				background: #f4f4f4;
+				font-weight: bold;
+				padding: 5px 8px;
+				border-bottom: 1px solid #ddd;
+				border-right: none;
+			}
+
+			.gridflex-value {
+				padding: 5px 8px;
+				border-right: none;
+			}
+		}
+	</style>
+</head>
+<body>
+
+<div class="gridflex-container">
+	<div class="gridflex-header">Commit Info</div>
+	<div class="gridflex-grid">
+		<div class="gridflex-label">ID</div>
+		<div class="gridflex-value">322828d1396ae5b6753737336ab415eea73476ad</div>
+
+		<div class="gridflex-label">Author</div>
+		<div class="gridflex-value">Runxi Yu &lt;<a href="mailto:me@runxiyu.org">me@runxiyu.org</a>&gt;</div>
+
+		<div class="gridflex-label">Author date</div>
+		<div class="gridflex-value">Fri, 14 Feb 2025 17:13:53 +0800</div>
+
+		<div class="gridflex-label">Committer</div>
+		<div class="gridflex-value">Runxi Yu &lt;<a href="mailto:me@runxiyu.org">me@runxiyu.org</a>&gt;</div>
+
+		<div class="gridflex-label">Committer date</div>
+		<div class="gridflex-value">Fri, 14 Feb 2025 17:13:53 +0800</div>
+
+		<div class="gridflex-label">Message</div>
+		<div class="gridflex-value"><pre>style.css: Shrink font-size a bit for monospace components</pre></div>
+
+		<div class="gridflex-label">Actions</div>
+		<div class="gridflex-value"><a href="322828d1396ae5b6753737336ab415eea73476ad.patch">Get patch</a></div>
+	</div>
+</div>
+
+</body>
+</html>

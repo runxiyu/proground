@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commit Info - Flexbox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .commit-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .commit-header {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .commit-info {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+
+        .commit-row {
+            display: flex;
+            flex: 1 1 100%;
+            padding: 6px 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .commit-label {
+            font-weight: bold;
+            width: 30%;
+            min-width: 120px;
+        }
+
+        .commit-value {
+            flex: 1;
+            overflow-wrap: break-word;
+        }
+
+        pre {
+            margin: 0;
+            font-family: monospace;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .commit-row {
+                flex-direction: column;
+            }
+
+            .commit-label {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="commit-container">
+    <div class="commit-header">Commit Info</div>
+    <div class="commit-info">
+        <div class="commit-row">
+            <div class="commit-label">ID</div>
+            <div class="commit-value">322828d1396ae5b6753737336ab415eea73476ad</div>
+        </div>
+        <div class="commit-row">
+            <div class="commit-label">Author</div>
+            <div class="commit-value">Runxi Yu &lt;<a href="mailto:me@runxiyu.org">me@runxiyu.org</a>&gt;</div>
+        </div>
+        <div class="commit-row">
+            <div class="commit-label">Author date</div>
+            <div class="commit-value">Fri, 14 Feb 2025 17:13:53 +0800</div>
+        </div>
+        <div class="commit-row">
+            <div class="commit-label">Committer</div>
+            <div class="commit-value">Runxi Yu &lt;<a href="mailto:me@runxiyu.org">me@runxiyu.org</a>&gt;</div>
+        </div>
+        <div class="commit-row">
+            <div class="commit-label">Committer date</div>
+            <div class="commit-value">Fri, 14 Feb 2025 17:13:53 +0800</div>
+        </div>
+        <div class="commit-row">
+            <div class="commit-label">Message</div>
+            <div class="commit-value"><pre>style.css: Shrink font-size a bit for monospace components</pre></div>
+        </div>
+        <div class="commit-row">
+            <div class="commit-label">Actions</div>
+            <div class="commit-value"><a href="322828d1396ae5b6753737336ab415eea73476ad.patch">Get patch</a></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

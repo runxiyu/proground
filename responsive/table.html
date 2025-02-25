@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Commit Info Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .table-container {
+            max-width: 100%;
+            overflow-x: auto; /* Enables horizontal scrolling on small screens */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 400px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .title-row th {
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        pre {
+            margin: 0;
+            font-family: monospace;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            table {
+                font-size: 0.9em; /* Slightly smaller font for small screens */
+            }
+
+            th, td {
+                padding: 6px;
+            }
+
+            .title-row th {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="table-container">
+    <table id="commit-info-table">
+        <thead>
+            <tr class="title-row">
+                <th colspan="2">Commit Info</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">ID</th>
+                <td>322828d1396ae5b6753737336ab415eea73476ad</td>
+            </tr>
+            <tr>
+                <th scope="row">Author</th>
+                <td>Runxi Yu &lt;<a href="mailto:me@runxiyu.org">me@runxiyu.org</a>&gt;</td>
+            </tr>
+            <tr>
+                <th scope="row">Author date</th>
+                <td>Fri, 14 Feb 2025 17:13:53 +0800</td>
+            </tr>
+            <tr>
+                <th scope="row">Committer</th>
+                <td>Runxi Yu &lt;<a href="mailto:me@runxiyu.org">me@runxiyu.org</a>&gt;</td>
+            </tr>
+            <tr>
+                <th scope="row">Committer date</th>
+                <td>Fri, 14 Feb 2025 17:13:53 +0800</td>
+            </tr>
+            <tr>
+                <th scope="row">Message</th>
+                <td><pre>style.css: Shrink font-size a bit for monospace components</pre></td>
+            </tr>
+            <tr>
+                <th scope="row">Actions</th>
+                <td><pre><a href="322828d1396ae5b6753737336ab415eea73476ad.patch">Get patch</a></pre></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
